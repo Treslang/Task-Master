@@ -25,13 +25,10 @@ public class Home extends AppCompatActivity {
     });
 
 
-    weekly = (ImageButton) findViewById(R.id.imageButton3);
-    weekly.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            openWeeklyActivity();
-        }
-    });
+
+
+
+
     daily = (ImageButton) findViewById(R.id.imageButton2);
     daily.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -47,10 +44,7 @@ public class Home extends AppCompatActivity {
         startActivity(daily);
     }
 
-    public  void openWeeklyActivity(){
-        Intent weekly = new Intent(this, ViewTasks.class);
-        startActivity(weekly);
-    }
+
 
     public void openProfileActivity(){
         Intent profile = new Intent(this, Profile.class);
