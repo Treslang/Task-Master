@@ -132,7 +132,27 @@
             android:text="SAVE"/>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/button_timepicker"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="199dp"
+                android:layout_height="52dp"
+                android:background="#EC5D5D"
+                android:gravity="center"
+                android:text="SET TIME"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.924"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.913" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
     </RelativeLayout>

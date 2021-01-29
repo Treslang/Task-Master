@@ -2,6 +2,10 @@ package com.example.taskmaster;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.TimePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckedTextView;
@@ -21,6 +25,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -28,6 +33,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Daily extends AppCompatActivity {
+    private TextView mTextView;
 
     Calendar calendar;
     DBHelper2 mydb;
@@ -37,6 +43,8 @@ public class Daily extends AppCompatActivity {
     TextView toolbar_title;
     EditText edit_text;
     TextView dateText;
+
+
     Button save_btn;
 
     @Override
@@ -44,6 +52,8 @@ public class Daily extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         setContentView(R.layout.activity_daily);
+        mTextView = findViewById(R.id.textView);
+
 
         mydb = new DBHelper2(getApplicationContext());
         calendar = new GregorianCalendar();
@@ -52,8 +62,9 @@ public class Daily extends AppCompatActivity {
         dateText = findViewById(R.id.dateText);
         save_btn = findViewById(R.id.save_btn);
 
-
         dateText.setText(new SimpleDateFormat("E, dd MMMM yyyy").format(calendar.getTime()));
+
+
 
 
         Intent intent = getIntent();
@@ -64,7 +75,10 @@ public class Daily extends AppCompatActivity {
         }
 
 
-    }
+        }
+
+
+
 
     public void init_modify() {
         toolbar_title.setText("Modify Task");
@@ -123,6 +137,7 @@ public class Daily extends AppCompatActivity {
         final View dialogView = View.inflate(this, R.layout.date_picker, null);
         final DatePicker datePicker = dialogView.findViewById(R.id.date_picker);
         datePicker.updateDate(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+        
 
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
